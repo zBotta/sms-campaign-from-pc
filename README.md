@@ -54,7 +54,11 @@ Use your Android phone (with an active SIM plan) as a remote SMS gateway while y
    ```
 
 6. Battery/background tweaks: Settings → Apps → Termux / Termux:API → Battery → Unrestricted (prevents Android from killing `sshd`).
-7. Netlink limitations: if `ip`/`ss` fails, retrieve the phone IP from Android Wi-Fi details, `ifconfig` (from `net-tools`), or `getprop dhcp.wlan0.ipaddress`.
+
+#### 1.1 Get Phone's user and IP
+1. execute `whoami` in Termux. Write down your TERMUX_USER, e.g. `u0_1234`
+2. Obtain the phone's IP within your WiFi network. Call `ifconfig` in the Termux terminal.  The IP address should be something like `inet 192.168.1.X` -> `PHONE_IP`
+3. Netlink limitations: if `ip`/`ss` fails, retrieve the phone IP from Android Wi-Fi details, `ifconfig` (from `net-tools`), or `getprop dhcp.wlan0.ipaddress`.
 
 ### 2. Prepare the PC
 1. Confirm SSH client availability: `ssh -V`.
